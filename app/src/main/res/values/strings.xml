@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pothole Reporter</string>
+    <string name="pothole_header">Pothole Reporter</string>
+    <string name="enter_location">Enter Region?</string>
+    
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="or">or</string>
+    <string name="use_current_location">Use Current Location</string>
+    <string name="take_image">Click Image</string>
+    <string name="submit"><![CDATA[SUBMIT—>]]></string>
+    <string name="short_desc">Enter Short Description ?</string>
+</resources>
