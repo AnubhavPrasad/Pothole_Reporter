@@ -3,7 +3,10 @@ package com.example.potholereporter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.potholereporter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +14,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
-        Navigation.findNavController(this,R.id.nav_host)
+        val navController=this.findNavController(R.id.nav_host)
+        NavigationUI.setupActionBarWithNavController(this,navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController=this.findNavController(R.id.nav_host)
+        return navController.navigateUp()
     }
 }

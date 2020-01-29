@@ -3,6 +3,7 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -15,18 +16,29 @@ import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkCallingOrSelfPermission
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.potholereporter.databinding.FragmentTitleBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import kotlinx.android.synthetic.main.fragment_title.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import java.io.ByteArrayOutputStream
 
 private val REQUEST_PERMISSSION=10
 class TitleFragment : Fragment(){
+    lateinit var databaseReference: FirebaseDatabase
+    lateinit var storageReference: FirebaseStorage
     lateinit var latitude:String    //Current Latitude
     lateinit var longitude:String   //Current Longitude
     lateinit var LocationInput:String   // Location input from user stored
     lateinit var Desc: String        //Description stored
     lateinit var imagebit: Bitmap   //Captured Image stored as Bitmap
+    lateinit var url: Uri
+    lateinit var refdata:DatabaseReference
+    lateinit var id:String
     private var REQUEST_IMAGE_CAPTURE = 1
     lateinit var fusedLocationClient: FusedLocationProviderClient
     lateinit var binding: FragmentTitleBinding
@@ -35,6 +47,8 @@ class TitleFragment : Fragment(){
         savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_title, container, false)
         Log.i("MainActivity","INFLATED")
+        databaseReference=FirebaseDatabase.getInstance()
+        storageReference= FirebaseStorage.getInstance()
         val permissions = arrayOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION
@@ -99,9 +113,32 @@ class TitleFragment : Fragment(){
                 Toast.makeText(parentFragment?.context, "Image is Required", Toast.LENGTH_SHORT)
                     .show()
             }
+            return
+        }
+        sendimage()
+    }
 
-            Log.i("MainActivity", LocationInput)
-            Log.i("MainActivity", Desc)
+    private fun sendimage() {
+        refdata=databaseReference.getReference("FIRST")
+        id=refdata.push().key!!
+        val refstore=storageReference.reference.child(id)
+        val baos=ByteArrayOutputStream()
+        imagebit.compress(Bitmap.CompressFormat.JPEG,100,baos)
+        val data=baos.toByteArray()
+        val uploadtask=refstore.putBytes(data)
+        uploadtask.addOnSuccessListener {
+            refstore.downloadUrl.addOnSuccessListener {
+                url=it
+                sendata()
+            }
+        }
+    }
+    private fun sendata() {
+        val data=Data(id,LocationInput,Desc,latitude,longitude)
+        refdata.child(id).setValue(data).addOnSuccessListener {
+            Toast.makeText(context,"Uploaded",Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_titleFragment_to_displayData)
+
         }
     }
 
