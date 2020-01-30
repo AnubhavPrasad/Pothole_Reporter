@@ -1,7 +1,6 @@
 package com.example.potholereporter
 
 
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,7 +16,6 @@ import com.google.firebase.storage.FirebaseStorage
 class DisplayData : Fragment() {
     lateinit var binding: FragmentDisplayDataBinding
     lateinit var dataref: DatabaseReference
-    lateinit var ImageList: MutableList<Uri>
     lateinit var DataList: MutableList<Data>
 
     override fun onCreateView(
@@ -27,7 +25,6 @@ class DisplayData : Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_display_data, container, false)
         DataList = mutableListOf()
-        ImageList = mutableListOf()
         dataref = FirebaseDatabase.getInstance().getReference("FIRST")
         binding.recyclerId.layoutManager = LinearLayoutManager(context)
         binding.progressBar5.visibility = View.VISIBLE
