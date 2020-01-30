@@ -3,6 +3,8 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.ColorFilter
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -11,9 +13,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkCallingOrSelfPermission
+import androidx.core.graphics.toColor
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -69,6 +73,10 @@ class TitleFragment : Fragment(){
         binding.submtButton.setOnClickListener {
             SubmitAction()
         }
+        binding.goToResult.setOnClickListener {
+            findNavController().navigate(R.id.action_titleFragment_to_displayData)
+        }
+
         return binding.root
     }
 
@@ -115,19 +123,27 @@ class TitleFragment : Fragment(){
             }
             return
         }
+
+        binding.progressBar2.visibility = View.VISIBLE
+        binding.progressBar2.solidColor
+        binding.locationId.text.clear()
+        val color:Int= Color.parseColor("#9CF8EEEE")
+        binding.linearId.setBackgroundColor(color)
+        binding.descId.editText!!.text.clear()
         sendimage()
     }
 
-    private fun sendimage() {
+    private fun sendimage(){
         refdata=databaseReference.getReference("FIRST")
         id=refdata.push().key!!
-        val refstore=storageReference.reference.child(id)
+        val refstore=storageReference.getReference("FIRST").child(id)
         val baos=ByteArrayOutputStream()
         imagebit.compress(Bitmap.CompressFormat.JPEG,100,baos)
         val data=baos.toByteArray()
         val uploadtask=refstore.putBytes(data)
         uploadtask.addOnSuccessListener {
             refstore.downloadUrl.addOnSuccessListener {
+                Log.i("Check","Image Uploaded")
                 url=it
                 sendata()
             }
@@ -136,6 +152,7 @@ class TitleFragment : Fragment(){
     private fun sendata() {
         val data=Data(id,LocationInput,Desc,latitude,longitude)
         refdata.child(id).setValue(data).addOnSuccessListener {
+            binding.progressBar2.visibility=View.GONE
             Toast.makeText(context,"Uploaded",Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_titleFragment_to_displayData)
 

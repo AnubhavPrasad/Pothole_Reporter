@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/titleFragment"
         android:name="com.example.potholereporter.TitleFragment"
-        android:label="TitleFragment">
+        android:label="Pothole Checker">
         <action
             android:id="@+id/action_titleFragment_to_displayData"
             app:destination="@id/displayData" />
@@ -17,5 +17,5 @@
     <fragment
         android:id="@+id/displayData"
         android:name="com.example.potholereporter.DisplayData"
-        android:label="DisplayData" />
+        android:label="Previous Records" />
 </navigation>

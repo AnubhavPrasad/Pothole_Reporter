@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ConstraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#DEF5F4"
-        tools:context=".TitleFragment"><![CDATA[
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#DEF5F4"
+            tools:context=".TitleFragment"><![CDATA[
 
         app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -16,9 +16,13 @@
 
 
 
-        ]]>
 
-        <EditText
+
+
+
+            ]]>
+
+            <EditText
             android:id="@+id/location_id"
             android:layout_width="198dp"
             android:layout_height="37dp"
@@ -35,138 +39,174 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_id" />
 
-        <TextView
-            android:id="@+id/header_id"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="#FC93D5F3"
-            android:fontFamily="@font/fenix"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="@string/pothole_header"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="#1543BB"
-            android:textSize="27sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.048" />
+            <TextView
+                android:id="@+id/header_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#FC93D5F3"
+                android:fontFamily="@font/fenix"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/pothole_header"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#1543BB"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.048" />
 
-        <TextView
-            android:id="@+id/or_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/or"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/location_id"
-            app:layout_constraintVertical_bias="0.017" />
+            <TextView
+                android:id="@+id/or_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/or"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/location_id"
+                app:layout_constraintVertical_bias="0.017" />
 
-        <Button
-            android:id="@+id/current_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/location_round"
-            android:padding="5dp"
-            android:paddingStart="7dp"
-            android:paddingEnd="7dp"
-            android:text="@string/use_current_location"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/or_id"
-            app:layout_constraintVertical_bias="0.019" />
+            <Button
+                android:id="@+id/current_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/location_round"
+                android:padding="5dp"
+                android:paddingStart="7dp"
+                android:paddingEnd="7dp"
+                android:text="@string/use_current_location"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/or_id"
+                app:layout_constraintVertical_bias="0.019" />
 
-        <ImageButton
-            android:id="@+id/click_button"
-            android:layout_width="44dp"
-            android:layout_height="36dp"
-            android:background="@drawable/rounded_button"
-            android:cropToPadding="false"
-            android:paddingStart="10dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="5dp"
-            android:src="@android:drawable/ic_menu_camera"
-            app:layout_constraintBottom_toTopOf="@+id/submt_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/desc_id" />
+            <ImageButton
+                android:id="@+id/click_button"
+                android:layout_width="44dp"
+                android:layout_height="36dp"
+                android:background="@drawable/rounded_button"
+                android:cropToPadding="false"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:src="@android:drawable/ic_menu_camera"
+                app:layout_constraintBottom_toTopOf="@+id/submt_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/desc_id" />
 
-        <TextView
-            android:id="@+id/click_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/chivo"
-            android:includeFontPadding="false"
-            android:text="@string/take_image"
-            android:textAlignment="center"
-            android:textSize="19sp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.188"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/current_button" />
+            <TextView
+                android:id="@+id/click_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/chivo"
+                android:includeFontPadding="false"
+                android:text="@string/take_image"
+                android:textAlignment="center"
+                android:textSize="19sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.188"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/current_button" />
 
-        <Button
-            android:id="@+id/submt_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/submit_round"
-            android:text="@string/submit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/submt_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/submit_round"
+                android:text="@string/submit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.842"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_id"
+                app:layout_constraintVertical_bias="1.0" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/desc_id"
-            android:layout_width="333dp"
-            android:layout_height="137dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/rounded_edittext"
-            app:layout_constraintBottom_toTopOf="@+id/submt_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/current_button"
-            app:layout_constraintVertical_bias="0.64">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/short_id"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alpha="1"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/desc_id"
+                android:layout_width="333dp"
+                android:layout_height="137dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
                 android:background="@drawable/rounded_edittext"
-                android:hint="@string/short_desc"
-                android:inputType="textMultiLine|textPersonName"
-                android:maxLength="120"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:textAlignment="center" />
-        </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintBottom_toTopOf="@+id/submt_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/current_button"
+                app:layout_constraintVertical_bias="0.64">
 
-        <ImageView
-            android:id="@+id/show_image"
-            android:layout_width="133dp"
-            android:layout_height="86dp"
-            android:clickable="false"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/desc_id"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/current_button" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/short_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="1"
+                    android:background="@drawable/rounded_edittext"
+                    android:hint="@string/short_desc"
+                    android:inputType="textMultiLine|textPersonName"
+                    android:maxLength="80"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textAlignment="center" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/show_image"
+                android:layout_width="133dp"
+                android:layout_height="86dp"
+                android:clickable="false"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/desc_id"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/current_button" />
+
+            <LinearLayout
+                android:id="@+id/linear_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="65dp"
+                    android:layout_height="66dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    tools:layout_editor_absoluteX="180dp"
+                    tools:layout_editor_absoluteY="369dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/go_to_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/submit_round"
+                android:text="@string/result"
+                app:layout_constraintBaseline_toBaselineOf="@+id/submt_button"
+                app:layout_constraintEnd_toStartOf="@+id/submt_button"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,4 +9,5 @@
     <string name="take_image">Click Image</string>
     <string name="submit"><![CDATA[SUBMIT—>]]></string>
     <string name="short_desc">Enter Short Description ?</string>
+    <string name="result"><![CDATA[RECORDS—>]]></string>
 </resources>
