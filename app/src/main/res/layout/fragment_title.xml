@@ -45,8 +45,8 @@
                 android:layout_height="wrap_content"
                 android:background="#FC93D5F3"
                 android:fontFamily="@font/fenix"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:text="@string/pothole_header"
                 android:textAlignment="center"
                 android:textAllCaps="true"
@@ -55,10 +55,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.048" />
+                app:layout_constraintVertical_bias="0.023" />
 
             <TextView
                 android:id="@+id/or_id"
@@ -126,7 +126,6 @@
                 android:id="@+id/submt_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
                 android:background="@drawable/submit_round"
                 android:text="@string/submit"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -134,7 +133,7 @@
                 app:layout_constraintHorizontal_bias="0.842"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/click_id"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.94" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/desc_id"
@@ -177,14 +176,18 @@
 
             <LinearLayout
                 android:id="@+id/linear_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="163dp"
+                android:layout_height="146dp"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="123dp"
+                android:layout_marginBottom="13dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/desc_id"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/current_button">
 
                 <ProgressBar
                     android:id="@+id/progressBar2"
@@ -192,9 +195,7 @@
                     android:layout_width="65dp"
                     android:layout_height="66dp"
                     android:layout_gravity="center"
-                    android:visibility="gone"
-                    tools:layout_editor_absoluteX="180dp"
-                    tools:layout_editor_absoluteY="369dp" />
+                    android:visibility="gone" />
             </LinearLayout>
 
             <Button

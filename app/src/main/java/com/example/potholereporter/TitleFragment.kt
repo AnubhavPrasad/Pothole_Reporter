@@ -17,6 +17,7 @@ import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkCallingOrSelfPermission
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.potholereporter.databinding.FragmentTitleBinding
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -70,7 +71,7 @@ class TitleFragment : Fragment() {
             SubmitAction()
         }
         binding.goToResult.setOnClickListener {
-            findNavController().navigate(R.id.action_titleFragment_to_displayData)
+            it.findNavController().navigate(R.id.action_titleFragment_to_displayData)
         }
 
         return binding.root
