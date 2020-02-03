@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "740389754165-c9l9jfnsj7978vvhfhg2nf1l68cumfvr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.potholereporter",
+            "certificate_hash": "a832d85147a70da3f1eba3a41a5e4a4bbc8d4fa7"
+          }
+        },
+        {
           "client_id": "740389754165-qcvgaihm13aq9taq5p863i98mh05jkhp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -51,5 +51,4 @@ class DisplayData : Fragment() {
         return binding.root
     }
 
-
 }

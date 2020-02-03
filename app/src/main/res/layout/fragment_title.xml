@@ -8,49 +8,37 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#DEF5F4"
-            tools:context=".TitleFragment"><![CDATA[
-
-        app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header_id" />
-
-
-
-
-
-
-
-            ]]>
+            tools:context=".TitleFragment">
 
             <EditText
-            android:id="@+id/location_id"
-            android:layout_width="198dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="109dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="112dp"
-            android:background="@drawable/rounded_edittext"
-            android:ems="10"
-            android:hint="@string/enter_location"
-            android:inputType="textPostalAddress|textEmailSubject"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header_id" />
+                android:id="@+id/location_id"
+                android:layout_width="198dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="109dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="112dp"
+                android:background="@drawable/rounded_edittext"
+                android:ems="10"
+                android:hint="@string/enter_location"
+                android:inputType="textPostalAddress|textCapWords"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header_id" />
 
             <TextView
                 android:id="@+id/header_id"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="#FC93D5F3"
+                android:background="#A880BED6"
                 android:fontFamily="@font/fenix"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="@string/pothole_header"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="#1543BB"
+                android:textColor="#DC154D92"
                 android:textSize="27sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -153,13 +141,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:alpha="1"
+                    android:autoText="false"
                     android:background="@drawable/rounded_edittext"
                     android:hint="@string/short_desc"
-                    android:inputType="textMultiLine|textPersonName"
+                    android:includeFontPadding="false"
+                    android:inputType="textMultiLine|textPersonName|textCapWords"
                     android:maxLength="80"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textAllCaps="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -176,18 +167,14 @@
 
             <LinearLayout
                 android:id="@+id/linear_id"
-                android:layout_width="163dp"
-                android:layout_height="146dp"
-                android:layout_marginStart="125dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="123dp"
-                android:layout_marginBottom="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toTopOf="@+id/desc_id"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/current_button">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ProgressBar
                     android:id="@+id/progressBar2"

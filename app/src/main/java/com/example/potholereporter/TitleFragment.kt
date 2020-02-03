@@ -32,8 +32,8 @@ private val REQUEST_PERMISSSION = 10
 class TitleFragment : Fragment() {
     lateinit var databaseReference: FirebaseDatabase
     lateinit var storageReference: FirebaseStorage
-    lateinit var latitude: String    //Current Latitude
-    lateinit var longitude: String   //Current Longitude
+    private var latitude = ""   //Current Latitude
+    private var longitude = ""   //Current Longitude
     lateinit var LocationInput: String   // Location input from user stored
     lateinit var Desc: String        //Description stored
     lateinit var imagebit: Bitmap   //Captured Image stored as Bitmap
@@ -115,7 +115,7 @@ class TitleFragment : Fragment() {
     private fun SubmitAction() {
         LocationInput = binding.locationId.text.toString() //Input of location from user
         Desc = binding.shortId.text.toString() //Input of description from user
-        if (Desc.isEmpty() || binding.showImage.drawable == null) {
+        if (Desc.isEmpty() || binding.showImage.drawable == null || latitude == "" || longitude == "") {
             if (Desc.isEmpty()) {
                 binding.shortId.error = "Description is required"
                 binding.shortId.requestFocus()
@@ -124,11 +124,13 @@ class TitleFragment : Fragment() {
                 Toast.makeText(parentFragment?.context, "Image is Required", Toast.LENGTH_SHORT)
                     .show()
             }
+            if (longitude == "" || latitude == "") {
+                Toast.makeText(context, "Use GPS", Toast.LENGTH_SHORT).show()
+            }
             return
         }
 
         binding.progressBar2.visibility = View.VISIBLE
-        binding.progressBar2.solidColor
         binding.locationId.text.clear()
         val color: Int = Color.parseColor("#9CF8EEEE")
         binding.linearId.setBackgroundColor(color)
