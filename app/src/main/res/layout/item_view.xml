@@ -4,7 +4,6 @@
     android:id="@+id/realtive_id"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
     android:background="@drawable/rouded_view"
@@ -12,6 +11,7 @@
     android:padding="10dp">
 
     <TextView
+        android:textColor="@android:color/black"
         android:id="@+id/longitude_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,6 +36,7 @@
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="18sp"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +46,7 @@
         app:layout_constraintVertical_bias="0.89" />
 
     <TextView
+        android:textColor="@android:color/black"
         android:id="@+id/latitude_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,6 +63,7 @@
         app:layout_constraintVertical_bias="0.90999997" />
 
     <TextView
+        android:textColor="@android:color/black"
         android:id="@+id/show_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
