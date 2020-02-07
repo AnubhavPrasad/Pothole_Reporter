@@ -7,7 +7,7 @@
         android:id="@+id/ConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E483BAE2"
+        android:background="@drawable/main_gradient"
         tools:context=".TitleFragment">
 
         <EditText
@@ -173,8 +173,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/current_button" />
 
-        <LinearLayout
-            android:id="@+id/linear_id"
+        <RelativeLayout
+            android:id="@+id/relative_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -186,12 +186,25 @@
 
             <ProgressBar
                 android:id="@+id/progressBar2"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="65dp"
-                android:layout_height="66dp"
-                android:layout_gravity="center"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                android:background="@drawable/round_load"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:visibility="gone" />
-        </LinearLayout>
+
+            <TextView
+                android:id="@+id/loading_text"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@id/progressBar2"
+                android:background="@drawable/loading"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/loading_text"
+                android:visibility="gone" />
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

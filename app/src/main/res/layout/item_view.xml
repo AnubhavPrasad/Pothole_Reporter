@@ -11,7 +11,6 @@
     android:padding="10dp">
 
     <TextView
-        android:textColor="@android:color/black"
         android:id="@+id/longitude_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,13 +18,14 @@
         android:fontFamily="@font/nobile"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="@android:color/black"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toEndOf="@+id/latitude_id"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.90999997" />
+        app:layout_constraintVertical_bias="0.872" />
 
     <TextView
         android:id="@+id/region_id"

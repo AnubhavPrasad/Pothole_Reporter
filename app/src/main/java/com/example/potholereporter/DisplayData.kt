@@ -26,6 +26,7 @@ class DisplayData : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_display_data, container, false)
         DataList = mutableListOf()
         dataref = FirebaseDatabase.getInstance().getReference("FIRST")
+
         binding.recyclerId.layoutManager = LinearLayoutManager(context)
         binding.progressBar5.visibility = View.VISIBLE
         val storageReference = FirebaseStorage.getInstance().getReference("FIRST")

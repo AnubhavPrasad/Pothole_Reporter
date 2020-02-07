@@ -11,6 +11,8 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.activity.addCallback
+import androidx.annotation.RequiresApi
 import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkCallingOrSelfPermission
 import androidx.databinding.DataBindingUtil
@@ -28,9 +30,12 @@ import java.io.ByteArrayOutputStream
 
 private val REQUEST_PERMISSSION = 10
 
+@Suppress("UNREACHABLE_CODE")
 class TitleFragment : Fragment() {
     lateinit var databaseReference: FirebaseDatabase
     lateinit var storageReference: FirebaseStorage
+    private var backpressedtime = 0L
+    lateinit var toast: Toast
     private var latitude = ""   //Current Latitude
     private var longitude = ""   //Current Longitude
     lateinit var LocationInput: String   // Location input from user stored
@@ -38,9 +43,11 @@ class TitleFragment : Fragment() {
     lateinit var imagebit: Bitmap   //Captured Image stored as Bitmap
     lateinit var refdata: DatabaseReference
     lateinit var id: String
+
     private var REQUEST_IMAGE_CAPTURE = 1
     lateinit var fusedLocationClient: FusedLocationProviderClient
     lateinit var binding: FragmentTitleBinding
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,6 +56,7 @@ class TitleFragment : Fragment() {
         Log.i("MainActivity", "INFLATED")
         databaseReference = FirebaseDatabase.getInstance()
         storageReference = FirebaseStorage.getInstance()
+
         val permissions = arrayOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION
@@ -70,8 +78,21 @@ class TitleFragment : Fragment() {
             SubmitAction()
         }
         setHasOptionsMenu(true)
+        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+            if (backpressedtime + 2000 > System.currentTimeMillis()) {
+                toast.cancel()
+                requireActivity().finish()
 
+            } else {
+                toast = Toast.makeText(context, "Press again to exit", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            backpressedtime = System.currentTimeMillis()
+
+        }
+        callback.isEnabled
         return binding.root
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -138,9 +159,10 @@ class TitleFragment : Fragment() {
         }
 
         binding.progressBar2.visibility = View.VISIBLE
+        binding.loadingText.visibility = View.VISIBLE
         binding.locationId.text.clear()
         val color: Int = Color.parseColor("#9CF8EEEE")
-        binding.linearId.setBackgroundColor(color)
+        binding.relativeId.setBackgroundColor(color)
         binding.descId.editText!!.text.clear()
         sendimage()
     }
@@ -165,6 +187,7 @@ class TitleFragment : Fragment() {
         val data = Data(id, LocationInput, Desc, latitude, longitude)
         refdata.child(id).setValue(data).addOnSuccessListener {
             binding.progressBar2.visibility = View.GONE
+            binding.loadingText.visibility = View.VISIBLE
             Toast.makeText(context, "Uploaded", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_titleFragment_to_displayData)
 
@@ -182,5 +205,6 @@ class TitleFragment : Fragment() {
         imagebit = extras?.get("data") as Bitmap
         binding.showImage.setImageBitmap(imagebit)
     }
+
 }
 

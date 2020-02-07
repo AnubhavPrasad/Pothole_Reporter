@@ -10,4 +10,6 @@
     <string name="short_desc">Enter Short Description ?</string>
     <string name="result"><![CDATA[RECORDS—>]]></string>
     <string name="divider">_________________________________</string>
+    <string name="loading_text">LOADING...</string>
+    <string name="exit_text">Are you sure ?</string>
 </resources>
